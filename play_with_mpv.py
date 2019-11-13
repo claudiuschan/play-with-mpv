@@ -43,7 +43,7 @@ class Handler(BaseHTTPServer.BaseHTTPRequestHandler, CompatibilityMixin):
                 pipe = Popen(['peerflix', '-k',  url, '--', '--force-window'] +
                              query.get("mpv_args", []))
             else:
-                pipe = Popen(['mpv', url, '--force-window'] +
+                pipe = Popen(['gnome-session-inhibit', 'mpv', url, '--force-window'] +
                              query.get("mpv_args", []))
             self.respond(200, "playing...")
         elif "cast_url" in query:
